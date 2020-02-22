@@ -11,18 +11,27 @@ namespace ML_App
         {
             Console.WriteLine("Hello World!");
 
-            // Add input data
-            var input = new ImageData();
-            string assetsRelativePath = @"../../../../Input/imagetest.png";
-            string assetsPath = GetAbsolutePath(assetsRelativePath);
-            input.ImageSource = assetsPath;
+            // Input's Images Folder
+            string ImageSourceRelativePath = @"../../../../Input";
+            string ImageSource = GetAbsolutePath(ImageSourceRelativePath);
 
+            // ML Model Path
             string modelRelativePath = @"../../../../Model/MLModel.zip";
             string modelPath = GetAbsolutePath(modelRelativePath);
 
             // Load model and predict output of sample data
-            ImagePrediction result = MLModelScorer.Predict(modelPath, input);
-            Console.WriteLine($"img: {input.ImageSource} Is : {result.Prediction} with a Score of: {result.Score}");
+            //ImagePrediction result = MLModelScorer.Predict(modelPath, ImageSource);
+
+            try
+            {
+                var modelScorer = new MLModelScorer(modelPath, ImageSource);
+                modelScorer.Predict();
+
+            }
+            catch (Exception ex)
+            {
+                ConsoleHelpers.ConsoleWriteException(ex.ToString());
+            }
 
             ConsoleHelpers.ConsolePressAnyKey();
         }

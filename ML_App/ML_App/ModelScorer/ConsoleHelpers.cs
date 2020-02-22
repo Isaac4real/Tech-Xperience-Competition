@@ -53,27 +53,15 @@ namespace ML_App.ModelScorer
             var labelColor = ConsoleColor.Magenta;
             var probColor = ConsoleColor.Blue;
             var exactLabel = ConsoleColor.Green;
-            var failLabel = ConsoleColor.Red;
+            //var failLabel = ConsoleColor.Red;
 
             Console.Write("ImagePath: ");
             Console.ForegroundColor = labelColor;
             Console.Write($"{Path.GetFileName(self.ImageSource)}");
             Console.ForegroundColor = defaultForeground;
-            Console.Write(" labeled as ");
-            Console.ForegroundColor = labelColor;
-            Console.Write(self.Label);
-            Console.ForegroundColor = defaultForeground;
             Console.Write(" predicted as ");
-            if (self.Label.Equals(self.Label))
-            {
-                Console.ForegroundColor = exactLabel;
-                Console.Write($"{self.PredictedLabel}");
-            }
-            else
-            {
-                Console.ForegroundColor = failLabel;
-                Console.Write($"{self.PredictedLabel}");
-            }
+            Console.ForegroundColor = exactLabel;
+            Console.Write(self.PredictedLabel);
             Console.ForegroundColor = defaultForeground;
             Console.Write(" with probability ");
             Console.ForegroundColor = probColor;
