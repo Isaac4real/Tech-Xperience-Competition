@@ -29,7 +29,7 @@ namespace ML_App.ModelScorer
             Console.WriteLine(" ");
             Console.WriteLine("Press any key to finish.");
             Console.ForegroundColor = defaultColor;
-            Console.ReadKey();
+            //Console.ReadKey();
         }
 
         public static void ConsoleWriteException(params string[] lines)

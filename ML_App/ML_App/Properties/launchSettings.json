@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "ML_App": {
+      "commandName": "Project"
+    },
+    "Docker": {
+      "commandName": "Docker"
+    }
+  }
+}

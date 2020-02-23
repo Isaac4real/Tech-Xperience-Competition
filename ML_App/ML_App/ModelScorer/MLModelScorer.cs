@@ -72,10 +72,10 @@ namespace ML_App.ModelScorer
                 ProcessDirectory(subdirectory);
         }
 
-        // Insert logic for processing found files here.
+
         public void ProcessFile(string path)
         {
-            //Console.WriteLine("Processed file '{0}'.", path);
+
             var input = new ImageData();
             var result = new ImagePrediction();
             var finalresult = new ImageDataProbability();

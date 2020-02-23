@@ -9,18 +9,23 @@ namespace ML_App
     {
         static void Main(string[] args)
         {
+
+            var curDir = Directory.GetCurrentDirectory();/////////
+            Console.WriteLine(curDir);/////////////
+            Console.WriteLine(Directory.GetDirectoryRoot(curDir));//////////////
+
             ConsoleHelpers.ConsoleWriteHeader("Welcome to the A.I. Classifier, Philips!");
 
             // Input's Images Folder
-            string ImageSourceRelativePath = @"../../../../Input";
+            string ImageSourceRelativePath = @"../../../Input";
             string ImageSource = GetAbsolutePath(ImageSourceRelativePath);
 
             // ML Model Path
-            string modelRelativePath = @"../../../../MLModel/MLModel.zip";
+            string modelRelativePath = @"../../../MLModel/MLModel.zip";
             string modelPath = GetAbsolutePath(modelRelativePath);
 
             // Where the .txt file will be written
-            string OutputTxtSourceRelativePath = @"../../../../Output/ScoredOutput.txt";
+            string OutputTxtSourceRelativePath = @"../../../Output/ScoredOutput.txt";
             string OutputTxtSource = GetAbsolutePath(OutputTxtSourceRelativePath);
 
             // Load model and predict output of sample data
