@@ -19,6 +19,7 @@ namespace ML_App.ModelScorer
             var maxLength = lines.Select(x => x.Length).Max();
             Console.WriteLine(new String('#', maxLength));
             Console.ForegroundColor = defaultColor;
+            Console.WriteLine("\n");
         }
 
         public static void ConsolePressAnyKey()

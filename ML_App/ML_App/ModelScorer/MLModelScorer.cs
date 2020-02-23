@@ -12,6 +12,7 @@ namespace ML_App.ModelScorer
     class MLModelScorer
     {
         private readonly string imagesFolder;
+        private readonly List<string> allowedExt = new List<string>() { ".jpg", ".jpeg", ".png", ".gif", ".tiff", ".bmp", ".svg" };
         private readonly string outputPath;
         private readonly string modelLocation;
         private readonly MLContext mlContext;
@@ -60,7 +61,10 @@ namespace ML_App.ModelScorer
             // Process the list of files found in the directory.
             string[] fileEntries = Directory.GetFiles(targetDirectory);
             foreach (string fileName in fileEntries)
-                ProcessFile(fileName);
+
+                if (allowedExt.Contains(Path.GetExtension(fileName).ToLower())) ProcessFile(fileName);
+                else if (Path.GetExtension(fileName).ToLower() != ".md") ConsoleHelpers.ConsoleWriteException("Cannot process this file extension: ", Path.GetExtension(fileName));
+
 
             // Recurse into subdirectories of this directory.
             string[] subdirectoryEntries = Directory.GetDirectories(targetDirectory);
