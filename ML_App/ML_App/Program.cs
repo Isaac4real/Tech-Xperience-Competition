@@ -9,7 +9,7 @@ namespace ML_App
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            ConsoleHelpers.ConsoleWriteHeader("Welcome to the A.I. Classifier, Philips!");
 
             // Input's Images Folder
             string ImageSourceRelativePath = @"../../../../Input";
@@ -19,12 +19,16 @@ namespace ML_App
             string modelRelativePath = @"../../../../Model/MLModel.zip";
             string modelPath = GetAbsolutePath(modelRelativePath);
 
+            // Where the .txt file will be written
+            string OutputTxtSourceRelativePath = @"../../../../Output/ScoredOutput.txt";
+            string OutputTxtSource = GetAbsolutePath(OutputTxtSourceRelativePath);
+
             // Load model and predict output of sample data
             //ImagePrediction result = MLModelScorer.Predict(modelPath, ImageSource);
 
             try
             {
-                var modelScorer = new MLModelScorer(modelPath, ImageSource);
+                var modelScorer = new MLModelScorer(modelPath, ImageSource, OutputTxtSource);
                 modelScorer.Predict();
 
             }

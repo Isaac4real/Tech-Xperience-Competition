@@ -12,33 +12,27 @@ namespace ML_App.ModelScorer
     class MLModelScorer
     {
         private readonly string imagesFolder;
+        private readonly string outputPath;
         private readonly string modelLocation;
         private readonly MLContext mlContext;
         private readonly ITransformer mlModel;
         private readonly PredictionEngine<ImageData, ImagePrediction> predEngine;
+        private string OutputTxt;
 
-        public MLModelScorer(string modelLocation, string imagesFolder)
+        public MLModelScorer(string modelLocation, string imagesFolder, string outputPath)
         {
             this.imagesFolder = imagesFolder;
             this.modelLocation = modelLocation;
+            this.outputPath = outputPath;
             mlContext = new MLContext();
             mlModel = mlContext.Model.Load(modelLocation, out var modelInputSchema);
             predEngine = mlContext.Model.CreatePredictionEngine<ImageData, ImagePrediction>(mlModel);
         }
-        // For more info on consuming ML.NET models, visit https://aka.ms/model-builder-consume
-        // Method for consuming model in your app
+
+
         public void Predict()
         {
-
-            // Create new MLContext
-            //MLContext mlContext = new MLContext();
-
-            // Load model & create prediction engine
-            //string modelPath = AppDomain.CurrentDomain.BaseDirectory + "MLModel.zip";
-            //ITransformer mlModel = mlContext.Model.Load(modelPath, out var modelInputSchema);
-            //var predEngine = mlContext.Model.CreatePredictionEngine<ImageData, ImagePrediction>(mlModel);
-
-
+            ConsoleHelpers.ConsoleWriteHeader("Classificate Images:");
             if (File.Exists(imagesFolder))
             {
                 // This path is a file
@@ -54,10 +48,8 @@ namespace ML_App.ModelScorer
                 Console.WriteLine("{0} is not a valid file or directory.", imagesFolder);
             }
 
-            //var input = new ImageData();
-            // Use model to make prediction on input data
-            //magePrediction result = predEngine.Predict(input);
-            
+            // write output
+            WriteOutput(OutputTxt, outputPath);
         }
 
 
@@ -86,10 +78,18 @@ namespace ML_App.ModelScorer
             input.ImageSource = path;
             // Use model to make prediction on input data
             result = predEngine.Predict(input);
-            finalresult.ImageSource = input.ImageSource;
+            finalresult.ImageSource = Path.GetFileNameWithoutExtension(input.ImageSource);
             finalresult.PredictedLabel = result.Prediction;
-            finalresult.Probability = result.Score[0];
+            finalresult.Probability = result.Score.Max()*100;
             finalresult.ConsoleWrite();
+
+            // Save output
+            OutputTxt +=( finalresult.ImageSource + " - " + finalresult.PredictedLabel + "\n");
+        }
+
+        public void WriteOutput(string OutputTxt, string outputPath)
+        {
+            File.WriteAllText(outputPath, OutputTxt);
         }
     }
 }

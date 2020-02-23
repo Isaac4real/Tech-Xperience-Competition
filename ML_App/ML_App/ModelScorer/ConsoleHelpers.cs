@@ -24,7 +24,7 @@ namespace ML_App.ModelScorer
         public static void ConsolePressAnyKey()
         {
             var defaultColor = Console.ForegroundColor;
-            Console.ForegroundColor = ConsoleColor.Green;
+            Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine(" ");
             Console.WriteLine("Press any key to finish.");
             Console.ForegroundColor = defaultColor;
@@ -51,22 +51,22 @@ namespace ML_App.ModelScorer
         {
             var defaultForeground = Console.ForegroundColor;
             var labelColor = ConsoleColor.Magenta;
-            var probColor = ConsoleColor.Blue;
+            //var probColor = ConsoleColor.Blue;
             var exactLabel = ConsoleColor.Green;
             //var failLabel = ConsoleColor.Red;
 
-            Console.Write("ImagePath: ");
+            //Console.Write("ImagePath: ");
             Console.ForegroundColor = labelColor;
             Console.Write($"{Path.GetFileName(self.ImageSource)}");
             Console.ForegroundColor = defaultForeground;
-            Console.Write(" predicted as ");
+            Console.Write(" - ");
             Console.ForegroundColor = exactLabel;
             Console.Write(self.PredictedLabel);
             Console.ForegroundColor = defaultForeground;
-            Console.Write(" with probability ");
-            Console.ForegroundColor = probColor;
-            Console.Write(self.Probability);
-            Console.ForegroundColor = defaultForeground;
+            //Console.Write(" with probability ");
+            //Console.ForegroundColor = probColor;
+            //Console.Write(self.Probability);
+            //Console.ForegroundColor = defaultForeground;
             Console.WriteLine("");
         }
 
