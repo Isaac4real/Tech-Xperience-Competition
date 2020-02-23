@@ -32,7 +32,7 @@ namespace ML_App.ModelScorer
 
         public void Predict()
         {
-            ConsoleHelpers.ConsoleWriteHeader("Classificate Images:");
+            ConsoleHelpers.ConsoleWriteHeader("Classificate Images: \n it might take some seconds :) ");
             if (File.Exists(imagesFolder))
             {
                 // This path is a file

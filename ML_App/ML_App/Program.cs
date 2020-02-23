@@ -16,7 +16,7 @@ namespace ML_App
             string ImageSource = GetAbsolutePath(ImageSourceRelativePath);
 
             // ML Model Path
-            string modelRelativePath = @"../../../../Model/MLModel.zip";
+            string modelRelativePath = @"../../../../MLModel/MLModel.zip";
             string modelPath = GetAbsolutePath(modelRelativePath);
 
             // Where the .txt file will be written
