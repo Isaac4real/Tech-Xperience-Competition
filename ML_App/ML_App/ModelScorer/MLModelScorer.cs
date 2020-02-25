@@ -24,7 +24,7 @@ namespace ML_App.ModelScorer
         {
             this.imagesFolder = imagesFolder;
             this.modelLocation = modelLocation;
-            this.outputPath = outputPath;
+            this.outputPath = outputPath + "ScoredOutput.txt";
             mlContext = new MLContext();
             mlModel = mlContext.Model.Load(modelLocation, out var modelInputSchema);
             predEngine = mlContext.Model.CreatePredictionEngine<ImageData, ImagePrediction>(mlModel);

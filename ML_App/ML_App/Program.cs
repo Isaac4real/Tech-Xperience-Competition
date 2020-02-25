@@ -9,27 +9,19 @@ namespace ML_App
     {
         static void Main(string[] args)
         {
-
-            var curDir = Directory.GetCurrentDirectory();/////////
-            Console.WriteLine(curDir);/////////////
-            Console.WriteLine(Directory.GetDirectoryRoot(curDir));//////////////
-
             ConsoleHelpers.ConsoleWriteHeader("Welcome to the A.I. Classifier, Philips!");
 
             // Input's Images Folder
-            string ImageSourceRelativePath = @"../../../Input";
-            string ImageSource = GetAbsolutePath(ImageSourceRelativePath);
+            string ImageSourceRelativePath = @"Input";
+            string ImageSource = Path.GetFullPath(ImageSourceRelativePath);
 
             // ML Model Path
-            string modelRelativePath = @"../../../MLModel/MLModel.zip";
-            string modelPath = GetAbsolutePath(modelRelativePath);
+            string modelRelativePath = @"MLModel/MLModel.zip";
+            string modelPath = Path.GetFullPath(modelRelativePath);
 
             // Where the .txt file will be written
-            string OutputTxtSourceRelativePath = @"../../../Output/ScoredOutput.txt";
-            string OutputTxtSource = GetAbsolutePath(OutputTxtSourceRelativePath);
-
-            // Load model and predict output of sample data
-            //ImagePrediction result = MLModelScorer.Predict(modelPath, ImageSource);
+            string OutputTxtSourceRelativePath = @"Output";
+            string OutputTxtSource = Path.GetFullPath(OutputTxtSourceRelativePath);
 
             try
             {
@@ -43,15 +35,6 @@ namespace ML_App
             }
 
             ConsoleHelpers.ConsolePressAnyKey();
-        }
-
-
-        public static string GetAbsolutePath(string relativePath)
-        {
-            FileInfo _dataRoot = new FileInfo(typeof(Program).Assembly.Location);
-            string assemblyFolderPath = _dataRoot.Directory.FullName;
-            string fullPath = Path.Combine(assemblyFolderPath, relativePath);
-            return fullPath;
         }
     }
 }
