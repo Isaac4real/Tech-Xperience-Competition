@@ -1,0 +1,12 @@
+docker build -t mlapp .
+docker run -d --name mlappcontainer mlapp
+
+docker run -v ./Input:/app/Input/ -t --name mlappcontainer mlapp
+
+docker load --input image.tar
+
+docker run -v ${pwd}/Input/:/app/Input/ -t --name appcontainer mlapp
+
+docker cp appcontainer:/app/Output/ScoredOutput.txt ${pwd}/Output/ScoredOutput.txt
+
+docker save -o mlappImage.tar mlapp:latest
