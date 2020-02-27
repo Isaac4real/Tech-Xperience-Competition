@@ -12,7 +12,7 @@ namespace ML_App
             ConsoleHelpers.ConsoleWriteHeader("Welcome to the A.I. Classifier, Philips!");
 
             // Input's Images Folder
-            string ImageSourceRelativePath = @"Input";
+            string ImageSourceRelativePath = @"Input/";
             string ImageSource = Path.GetFullPath(ImageSourceRelativePath);
 
             // ML Model Path
@@ -20,7 +20,7 @@ namespace ML_App
             string modelPath = Path.GetFullPath(modelRelativePath);
 
             // Where the .txt file will be written
-            string OutputTxtSourceRelativePath = @"Output";
+            string OutputTxtSourceRelativePath = @"Output/";
             string OutputTxtSource = Path.GetFullPath(OutputTxtSourceRelativePath);
 
             try

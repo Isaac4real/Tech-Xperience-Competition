@@ -1,1 +1,4 @@
-imagetest - smart-baby-bottle
+image12 - smart-baby-bottle
+image5 - smart-baby-bottle
+image6 - smart-baby-bottle
+image7 - smart-baby-bottle
