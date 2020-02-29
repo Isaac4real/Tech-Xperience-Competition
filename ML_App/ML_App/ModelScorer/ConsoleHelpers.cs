@@ -27,7 +27,7 @@ namespace ML_App.ModelScorer
             var defaultColor = Console.ForegroundColor;
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine(" ");
-            Console.WriteLine("Press any key to finish.");
+            Console.WriteLine("Please Press ENTER ");
             Console.ForegroundColor = defaultColor;
             Console.Read();
         }
@@ -51,13 +51,13 @@ namespace ML_App.ModelScorer
         public static void ConsoleWrite(this ImageDataProbability self)
         {
             var defaultForeground = Console.ForegroundColor;
-            var labelColor = ConsoleColor.Magenta;
+            //var labelColor = ConsoleColor.Magenta;
             //var probColor = ConsoleColor.Blue;
             var exactLabel = ConsoleColor.Green;
             //var failLabel = ConsoleColor.Red;
 
             //Console.Write("ImagePath: ");
-            Console.ForegroundColor = labelColor;
+            Console.ForegroundColor = exactLabel;
             Console.Write($"{Path.GetFileName(self.ImageSource)}");
             Console.ForegroundColor = defaultForeground;
             Console.Write(" - ");
