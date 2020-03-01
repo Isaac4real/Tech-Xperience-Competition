@@ -7,13 +7,13 @@ The procedure to run the application is very simple and straightforward. Neverth
 1. The Docker image was uploaded using Git LFS (due to the github upload limit of only 100 mb). For that reason, and after 
 downloading the repository using the option *Download Zip*, you will need to download the docker image individually. Just go inside 
 *Tech-Xperience-Competition/ML_App/Docker_Image/* and download the file *mlappImage.tar* individually (~950 mb). After downloading
-the *.tar* image, please make sure you place it inside the correct folder (*Docker_Image/*).  
+the *.tar* image, please be sure to place it inside the correct folder (*Docker_Image/*).  
 
 2. After you download the whole repository, insert the validation images inside the folder *Tech-Xperience-Competition/ML_App/Input/*.  
 3. Now you just need to run the batch file named *Run_Docker_Image.bat* which is in *Tech-Xperience-Competition/ML_App/*. 
 (P.S.: This step basically executes some *Docker* commands. I am assuming you are running on a windows machine. If not, see the next
-section to where I explain *docker* commands).  
-4. Besides being displayed in the console application, the scored results will be written in a ,txt file named *ScoredOutput.txt* in
+section where I explain the *docker* commands necessary to execute the application).  
+4. Besides being displayed in the console application, the scored results will be written in a .txt file named *ScoredOutput.txt* in
 *Tech-Xperience-Competition/ML_App/Output/*.  
 
 ## Details on how to run the app
@@ -31,7 +31,7 @@ commands in it:
       
 ## Aditional Info
 The above steps should be enough for you to run the application flawlessly. However, if for some reason you are facing an issue, 
-please contact me at any time. Even if you are just curious to know how I built this solution. I would e very glad to answer any 
+please contact me at any time. Even if you are just curious to know how I built this solution. I would be very glad to answer any 
 question.  
 Thank you vey much!!
 
